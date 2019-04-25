@@ -1,23 +1,12 @@
-# PLEASE READ
-The information provided in this README should be the details for *your* project. The section here located above the badges can be removed.
-
-## How to Use This Project
-* Clone this repo into a new folder
-* Delete the .git folder
-* Find and replace all occurrences of "node-fb-graph" with the name of your project
-* Reset the version in package.json to your project's version
-
-__________________________________________________
-
 [![Build Status](https://travis-ci.org/brencon/node-fb-graph.svg?branch=master)](https://travis-ci.org/brencon/node-fb-graph) [![Coverage Status](https://coveralls.io/repos/github/brencon/node-fb-graph/badge.svg?branch=master)](https://coveralls.io/github/brencon/node-fb-graph?branch=master)
 
 [![NPM](https://nodei.co/npm/node-fb-graph.png)](https://nodei.co/npm/node-fb-graph/)
 
 # node-fb-graph
-An npm module starter kit
+Node.js module for interacting with the Facebook Graph API.
 
 ## Overview
-This is a starter kit for building an npm module. It includes a framework for documentation, project file and folder structure hierarchy, continuous integration, and unit testing with code coverage.
+This module interfaces with the Facebook Graph API using a specific client access token that must be provided by the consumer of this library.
 
 ## Installation
 
