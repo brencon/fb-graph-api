@@ -1,6 +1,6 @@
 {
   "name": "node-fb-graph",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Node.js module for interacting with the Facebook Graph API",
   "main": "index.js",
   "scripts": {
