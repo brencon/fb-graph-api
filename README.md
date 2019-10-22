@@ -8,6 +8,9 @@ Node.js module for interacting with the Facebook Graph API.
 ## Overview
 This module interfaces with the Facebook Graph API using a specific client access token that must be provided by the consumer of this library.
 
+## Access Token
+This module requires a page id and a page access token that corresponds to that page id. A page access token will expire frequently. To create an extension for the access token, use Facebook's [Access Token Debugger](https://developers.facebook.com/tools/accesstoken) to debug the token. On the Access Token tab, click the Extend Access Token button on the bottom left. If the button is not present you are most likely debugging a user access token. Copy and paste your page access token into the debugger and click Debug. The Extend Access Token button should now appear.
+
 ## Installation
 
 ### npm
