@@ -9,7 +9,9 @@ const _PAGE_ID = '1618039481631017';
 describe('node-fb-graph', function() {
   it('return all posts for a given business page', async function() {
     const result = await npmms.getPosts(_PAGE_ACCESS_TOKEN, _PAGE_ID);
+    console.log(JSON.stringify(result.page.posts));
     expect(result.page.posts.length).to.be.greaterThan(0);
+    expect(result.page.posts[0].likes.summary.total_count).to.be.greaterThan(-1);
   });
   it('return all ratings for a given business page', async function() {
     const result = await npmms.getRatings(_PAGE_ACCESS_TOKEN, _PAGE_ID);

@@ -8,7 +8,7 @@ const _PAGE_ID = '1618039481631017';
 
 async function getPosts(pageAccessToken, pageId) {
   const options = {
-    url: `${fbURL}/${pageId}/posts?access_token=${pageAccessToken}`,
+    url: `${fbURL}/${pageId}/posts?fields=likes.summary(true),message,created_time&access_token=${pageAccessToken}`,
     method: 'GET'
   };
   const data = await rp.get(options, function(err, res, body) {
