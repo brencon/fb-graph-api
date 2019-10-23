@@ -6,6 +6,19 @@ const fbURL = 'https://graph.facebook.com';
 const _PAGE_ACCESS_TOKEN = 'EAAUggZAfCJdcBAArrTyMt6wRbGy4g9GFuhEtOJvowoAAaBoOounsV7HcQCsq67bhOFZCAv6o2es1aIHPcdrl8vpq7bDnc5SPXFr341VZAM8U6lYACtZAtfa7y2ZBtLy8JD1BNwAkCaQ8qn0fVirXWxHtdaQX76WHfMqdCWnCvG6nacCmWQV9zWZAfZAnifxmsTeDXFVDVn67wZDZD';
 const _PAGE_ID = '1618039481631017';
 
+async function getPage(pageAccessToken, pageId) {
+  const options = {
+    url: `${fbURL}/${pageId}?fields=rating_count,id,name,picture,about,privacy_info_url,cover&access_token=${pageAccessToken}`,
+    method: 'GET'
+  };
+  const data = await rp.get(options, function(err, res, body) {
+    if (err) return err;
+    else return body;
+  });
+  return { page: JSON.parse(data) };
+}
+
+
 async function getPosts(pageAccessToken, pageId) {
   const options = {
     url: `${fbURL}/${pageId}/posts?fields=likes.summary(true),message,story,created_time&access_token=${pageAccessToken}`,
@@ -31,6 +44,10 @@ async function getRatings(pageAccessToken, pageId) {
 };
 
 module.exports = {
+  getPage: async function(pageAccessToken, pageId) {
+    const data = await getPage(pageAccessToken, pageId);
+    return data;
+  },
   getPosts: async function(pageAccessToken, pageId) {
     const data = await getPosts(pageAccessToken, pageId);
     return data;

@@ -7,6 +7,12 @@ const _PAGE_ACCESS_TOKEN = 'EAAUggZAfCJdcBAP8WWwL8mQqpQZCO2zpj7H0YitJQIQZAjkKRct
 const _PAGE_ID = '1618039481631017';
 
 describe('node-fb-graph', function() {
+  it('return business page details', async function() {
+    const result = await npmms.getPage(_PAGE_ACCESS_TOKEN, _PAGE_ID);
+    console.log(JSON.stringify(result));
+    expect(result.page.id).to.not.be.undefined;
+    expect(result.page.name).to.not.be.undefined;
+  });
   it('return all posts for a given business page', async function() {
     const result = await npmms.getPosts(_PAGE_ACCESS_TOKEN, _PAGE_ID);
     console.log(JSON.stringify(result.page.posts));
