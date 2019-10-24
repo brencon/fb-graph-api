@@ -3,9 +3,6 @@ const rp = require('request-promise');
 
 const fbURL = 'https://graph.facebook.com';
 
-const _PAGE_ACCESS_TOKEN = 'EAAUggZAfCJdcBAArrTyMt6wRbGy4g9GFuhEtOJvowoAAaBoOounsV7HcQCsq67bhOFZCAv6o2es1aIHPcdrl8vpq7bDnc5SPXFr341VZAM8U6lYACtZAtfa7y2ZBtLy8JD1BNwAkCaQ8qn0fVirXWxHtdaQX76WHfMqdCWnCvG6nacCmWQV9zWZAfZAnifxmsTeDXFVDVn67wZDZD';
-const _PAGE_ID = '1618039481631017';
-
 async function getPage(pageAccessToken, pageId) {
   const options = {
     url: `${fbURL}/${pageId}?fields=rating_count,id,name,picture,about,privacy_info_url,cover&access_token=${pageAccessToken}`,
@@ -13,15 +10,6 @@ async function getPage(pageAccessToken, pageId) {
     rejectUnauthorized: false,
     insecure: true
   };
-  // const data = await rp.get(options, function(err, res, body) {
-  //   console.log(err);
-  //   console.log(res);
-  //   if (err) {
-  //     console.log(err);
-  //     return err;
-  //   }
-  //   else return body;
-  // });
   const data = await rp(options)
     .then(function(res) {
       return res;
