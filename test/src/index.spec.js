@@ -21,11 +21,16 @@ describe('node-fb-graph', function() {
     expect(result.page.error).to.not.be.undefined;
     expect(result.page.error.message).to.not.be.undefined;
   });  
-  it('return all posts for a given business page', async function() {
+  it.only('return all posts for a given business page', async function() {
     const result = await npmms.getPosts(_PAGE_ACCESS_TOKEN, _PAGE_ID);
     expect(result.page.posts.length).to.be.greaterThan(0);
     expect(result.page.posts[0].likes.summary.total_count).to.be.greaterThan(-1);
   });
+  it.only('return error for all posts for a given business page', async function() {
+    const result = await npmms.getPosts(_PAGE_ACCESS_TOKEN_INVALID, _PAGE_ID_INVALID);
+    expect(result.page.error).to.not.be.undefined;
+    expect(result.page.error.message).to.not.be.undefined;
+  });  
   it('return all ratings for a given business page', async function() {
     const result = await npmms.getRatings(_PAGE_ACCESS_TOKEN, _PAGE_ID);
     expect(result.page.ratings.length).to.be.greaterThan(0);
