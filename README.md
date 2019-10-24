@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/brencon/node-fb-graph.svg?branch=master)](https://travis-ci.org/brencon/node-fb-graph) [![Coverage Status](https://coveralls.io/repos/github/brencon/node-fb-graph/badge.svg?branch=master)](https://coveralls.io/github/brencon/node-fb-graph?branch=master)
+[![Build Status](https://api.travis-ci.com/brencon/fb-graph-api.svg?branch=master)](https://travis-ci.com/brencon/fb-graph-api) [![Coverage Status](https://coveralls.io/repos/github/brencon/fb-graph-api/badge.svg?branch=master)](https://coveralls.io/github/brencon/fb-graph-api?branch=master)
 
 [![NPM](https://nodei.co/npm/node-fb-graph.png)](https://nodei.co/npm/node-fb-graph/)
 
