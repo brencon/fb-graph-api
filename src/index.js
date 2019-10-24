@@ -3,14 +3,15 @@ const rp = require('request-promise');
 
 const fbURL = 'https://graph.facebook.com';
 
+const _OPTIONS = {
+  method: 'GET',
+  rejectUnauthorized: false,
+  insecure: true
+};
+
 async function getPage(pageAccessToken, pageId) {
-  const options = {
-    url: `${fbURL}/${pageId}?fields=rating_count,id,name,picture,about,privacy_info_url,cover&access_token=${pageAccessToken}`,
-    method: 'GET',
-    rejectUnauthorized: false,
-    insecure: true
-  };
-  const data = await rp(options)
+  _OPTIONS.url = `${fbURL}/${pageId}?fields=rating_count,id,name,picture,about,privacy_info_url,cover&access_token=${pageAccessToken}`;
+  const data = await rp(_OPTIONS)
     .then(function(res) {
       return res;
     })
