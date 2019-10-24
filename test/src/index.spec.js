@@ -11,19 +11,18 @@ const _PAGE_ACCESS_TOKEN_INVALID = chance.apple_token();
 const _PAGE_ID_INVALID = chance.string({ length: 16, pool: '0123456789' });
 
 describe('node-fb-graph', function() {
-  it.only('return business page details', async function() {
+  it('return business page details', async function() {
     const result = await npmms.getPage(_PAGE_ACCESS_TOKEN, _PAGE_ID);
     expect(result.page.id).to.not.be.undefined;
     expect(result.page.name).to.not.be.undefined;
   });
-  it.only('return error for business page details', async function() {
+  it('return error for business page details', async function() {
     const result = await npmms.getPage(_PAGE_ACCESS_TOKEN_INVALID, _PAGE_ID_INVALID);
     expect(result.page.error).to.not.be.undefined;
     expect(result.page.error.message).to.not.be.undefined;
   });  
   it('return all posts for a given business page', async function() {
     const result = await npmms.getPosts(_PAGE_ACCESS_TOKEN, _PAGE_ID);
-    console.log(JSON.stringify(result.page.posts));
     expect(result.page.posts.length).to.be.greaterThan(0);
     expect(result.page.posts[0].likes.summary.total_count).to.be.greaterThan(-1);
   });

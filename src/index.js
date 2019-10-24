@@ -23,13 +23,8 @@ async function getPage(pageAccessToken, pageId) {
 
 
 async function getPosts(pageAccessToken, pageId) {
-  const options = {
-    url: `${fbURL}/${pageId}/posts?fields=likes.summary(true),message,story,created_time&access_token=${pageAccessToken}`,
-    method: 'GET',
-    rejectUnauthorized: false,
-    insecure: true
-  };
-  const data = await rp.get(options, function(err, res, body) {
+  _OPTIONS.url = `${fbURL}/${pageId}/posts?fields=likes.summary(true),message,story,created_time&access_token=${pageAccessToken}`;
+  const data = await rp.get(_OPTIONS, function(err, res, body) {
     if (err) return err;
     else return body;
   });
@@ -37,13 +32,8 @@ async function getPosts(pageAccessToken, pageId) {
 }
 
 async function getRatings(pageAccessToken, pageId) {
-  const options = {
-    url: `${fbURL}/${pageId}/ratings?fields=reviewer,review_text,recommendation_type,rating,has_review,has_rating,created_time&access_token=${pageAccessToken}`,
-    method: 'GET',
-    rejectUnauthorized: false,
-    insecure: true
-  };
-  const data = await rp.get(options, function(err, res, body) {
+  _OPTIONS.url = `${fbURL}/${pageId}/ratings?fields=reviewer,review_text,recommendation_type,rating,has_review,has_rating,created_time&access_token=${pageAccessToken}`;
+  const data = await rp.get(_OPTIONS, function(err, res, body) {
     if (err) return err;
     else return body;
   });
