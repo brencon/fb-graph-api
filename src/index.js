@@ -36,11 +36,14 @@ async function getPosts(pageAccessToken, pageId) {
 
 async function getRatings(pageAccessToken, pageId) {
   _OPTIONS.url = `${fbURL}/${pageId}/ratings?fields=reviewer,review_text,recommendation_type,rating,has_review,has_rating,created_time&access_token=${pageAccessToken}`;
-  const data = await rp.get(_OPTIONS, function(err, res, body) {
-    if (err) return err;
-    else return body;
-  });
-  return { page: { ratings: JSON.parse(data).data } };
+  const data = await rp(_OPTIONS)
+    .then(function(res) {
+      return { page: { ratings: JSON.parse(res).data } };
+    })
+    .catch(function(err) {
+      return { page: JSON.parse(err.response.body) };
+    });
+  return data;
 };
 
 module.exports = {
