@@ -13,10 +13,22 @@ async function getPage(pageAccessToken, pageId) {
     rejectUnauthorized: false,
     insecure: true
   };
-  const data = await rp.get(options, function(err, res, body) {
-    if (err) return err;
-    else return body;
-  });
+  // const data = await rp.get(options, function(err, res, body) {
+  //   console.log(err);
+  //   console.log(res);
+  //   if (err) {
+  //     console.log(err);
+  //     return err;
+  //   }
+  //   else return body;
+  // });
+  const data = await rp(options)
+    .then(function(res) {
+      return res;
+    })
+    .catch(function(err) {
+      return err.response.body;
+    });
   return { page: JSON.parse(data) };
 }
 
